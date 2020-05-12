@@ -41,18 +41,60 @@ CREATE TABLE autores (
     status ENUM ('inativo', 'ativo') DEFAULT 'ativo'
 );
 
+-- Inserção de dados na tabela 'autores'
+INSERT INTO autores (
+    nome, apelido,
+    foto, resumo,
+    email, senha,
+    nascimento
+) VALUES (
+    'Joca da Silva', 'Joca',
+    'https://picsum.photos/200/300', 'Escritor de escrituras escritas.',
+    'joca@silva.com', '12345',
+    '1990-10-14'
+);
+
+-- ATIVIDADE) Insira pelo menos mais 2 autores
+--
+INSERT INTO autores (
+    nome, apelido,
+    foto, resumo,
+    email, senha,
+    nascimento
+) VALUES (
+    'Cristhiane Salles', 'Cris',
+    'https://picsum.photos/201/301', 'Mnter-se fiel a si é a condição ideal para o triunfo.Resistir e persistir.',
+    'crissalles@silvagmail.com', '01020304',
+    '1985-01-31'
+);
+INSERT INTO autores (
+    nome, apelido,
+    foto, resumo,
+    email, senha,
+    nascimento
+) VALUES (
+    'Lavinia Moura', 'Vivi',
+    'https://picsum.photos/199/302', 'O ontem não é nosso para recuperar, mas o amanhã é nosso para ganhar ou perder.',
+    'lavinia@gmail.com', '120504',
+    '1998-09-12'
+);
+
 -- Cria a tabela categorias
 CREATE TABLE categorias (
     id_categoria INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     nome VARCHAR(127) NOT NULL
 );
 
--- Cria a tabela de ligação artigos <-> categorias
-CREATE TABLE art_cat (
-    id_art_cat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    artigo_id INT NOT NULL,
-    categoria_id INT NOT NULL    
-);
+-- Inserção de dados na tabela 'categorias'
+INSERT INTO categorias (nome) VALUES ('Raças');
+INSERT INTO categorias (nome) VALUES ('Pelagem');
+
+-- ATIVIDADE) Insira pelo menos mais 4 categorias
+--
+INSERT INTO categorias (nome) VALUES ('Idade');
+INSERT INTO categorias (nome) VALUES ('Sexo');
+INSERT INTO categorias (nome) VALUES ('Tamanho');
+INSERT INTO categorias (nome) VALUES ('Peso');
 
 -- Cria a tabela artigos
 CREATE TABLE artigos (
@@ -66,5 +108,76 @@ CREATE TABLE artigos (
     campo1 TEXT COMMENT 'Reservado para uso futuro',
     campo2 TEXT COMMENT 'Reservado para uso futuro',
     campo3 TEXT COMMENT 'Reservado para uso futuro',
-    status ENUM ('inativo', 'ativo') DEFAULT 'ativo'
+    status ENUM ('inativo', 'ativo') DEFAULT 'ativo',
+
+    -- Chave estrangeira do autor
+    FOREIGN KEY (autor_id) REFERENCES autores (id_autor)
 );
+
+-- Inserção de dados na tabela 'artigos'
+INSERT INTO artigos (
+    titulo, imagem,
+    resumo, texto,
+    autor_id
+) VALUES (
+    'Primeiro Artigo do Site', 'https://picsum.photos/200',
+    'Resumo do primeiro artigo do Gatolândia.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, vel explicabo repudiandae libero, suscipit velit, reprehenderit ratione fuga totam tenetur asperiores necessitatibus odio iure consectetur mollitia nesciunt dignissimos aliquam impedit.',
+    '1'
+);
+
+-- ATIVIDADE) Inserir pelo menos mais 3 artigos
+--
+INSERT INTO artigos (
+    titulo, imagem,
+    resumo, texto,
+    autor_id
+) VALUES (
+    'Segundo Artigo do Site', 'https://picsum.photos/198',
+    'Resumo do segundo artigo do Gatolândia.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, vel explicabo repudiandae libero, suscipit velit, reprehenderit ratione fuga totam tenetur asperiores necessitatibus odio iure consectetur mollitia nesciunt dignissimos aliquam impedit.',
+    '1'
+);
+
+INSERT INTO artigos (
+    titulo, imagem,
+    resumo, texto,
+    autor_id
+) VALUES (
+    'Terceiro Artigo do Site', 'https://picsum.photos/201',
+    'Resumo do Terceiro artigo do Gatolândia.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, vel explicabo repudiandae libero, suscipit velit, reprehenderit ratione fuga totam tenetur asperiores necessitatibus odio iure consectetur mollitia nesciunt dignissimos aliquam impedit.',
+    '2'
+);
+
+INSERT INTO artigos (
+    titulo, imagem,
+    resumo, texto,
+    autor_id
+) VALUES (
+    'Quarto Artigo do Site', 'https://picsum.photos/200',
+    'Resumo do quarto artigo do Gatolândia.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, vel explicabo repudiandae libero, suscipit velit, reprehenderit ratione fuga totam tenetur asperiores necessitatibus odio iure consectetur mollitia nesciunt dignissimos aliquam impedit.',
+    '3'
+);
+
+-- Cria a tabela de ligação 'artigos' <-> 'categorias'
+CREATE TABLE art_cat (
+    id_art_cat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    artigo_id INT NOT NULL,
+    categoria_id INT NOT NULL,
+
+    -- Chave estrangeira dos artigos
+    FOREIGN KEY (artigo_id) REFERENCES artigos (id_artigo),
+
+    -- Chave estrangeira das categorias
+    FOREIGN KEY (categoria_id) REFERENCES categorias (id_categoria)    
+);
+
+-- Insere dados na tabela 'art_cat'
+INSERT INTO art_cat (artigo_id, categoria_id) VALUES (1, 1); -- Artigo 1 na categoria 1
+INSERT INTO art_cat (artigo_id, categoria_id) VALUES (1, 2); -- Artigo 1 na categoria 2
+
+-- ATIVIDADE) Cadastre cada artigo em categorias
+--
+INSERT INTO art_cat (artigo_id, categoria_id) VALUES (1, 3);
+INSERT INTO art_cat (artigo_id, categoria_id) VALUES (1, 4);
+INSERT INTO art_cat (artigo_id, categoria_id) VALUES (1, 5);
+INSERT INTO art_cat (artigo_id, categoria_id) VALUES (1, 6);
+
