@@ -73,10 +73,7 @@ INSERT INTO categorias (nome) VALUES ('Pelagem');
 
 -- ATIVIDADE) Insira pelo menos mais 4 categorias
 --
-INSERT INTO categorias (nome) VALUES ('Idade');
-INSERT INTO categorias (nome) VALUES ('Sexo');
-INSERT INTO categorias (nome) VALUES ('Tamanho');
-INSERT INTO categorias (nome) VALUES ('Peso');
+INSERT INTO categorias (nome) VALUES ('Idade'), ('Sexo'), ('Tamanho'), ('Peso');
 
 -- Cria a tabela artigos
 CREATE TABLE artigos (
@@ -114,7 +111,7 @@ INSERT INTO artigos (
     resumo, texto,
     autor_id
 ) VALUES (
-    'Segundo Artigo do Site', 'https://picsum.photos/198',
+    'Gato Malhado', 'https://picsum.photos/198',
     'Resumo do segundo artigo do Gatolândia.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, vel explicabo repudiandae libero, suscipit velit, reprehenderit ratione fuga totam tenetur asperiores necessitatibus odio iure consectetur mollitia nesciunt dignissimos aliquam impedit.',
     '1'
 );
@@ -124,7 +121,7 @@ INSERT INTO artigos (
     resumo, texto,
     autor_id
 ) VALUES (
-    'Terceiro Artigo do Site', 'https://picsum.photos/201',
+    'Gato de Botas', 'https://picsum.photos/201',
     'Resumo do Terceiro artigo do Gatolândia.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, vel explicabo repudiandae libero, suscipit velit, reprehenderit ratione fuga totam tenetur asperiores necessitatibus odio iure consectetur mollitia nesciunt dignissimos aliquam impedit.',
     '2'
 );
@@ -134,7 +131,7 @@ INSERT INTO artigos (
     resumo, texto,
     autor_id
 ) VALUES (
-    'Quarto Artigo do Site', 'https://picsum.photos/200',
+    'Gato Preto', 'https://picsum.photos/200',
     'Resumo do quarto artigo do Gatolândia.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, vel explicabo repudiandae libero, suscipit velit, reprehenderit ratione fuga totam tenetur asperiores necessitatibus odio iure consectetur mollitia nesciunt dignissimos aliquam impedit.',
     '3'
 );
