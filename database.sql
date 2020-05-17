@@ -56,28 +56,10 @@ INSERT INTO autores (
 
 -- ATIVIDADE) Insira pelo menos mais 2 autores
 --
-INSERT INTO autores (
-    nome, apelido,
-    foto, resumo,
-    email, senha,
-    nascimento
-) VALUES (
-    'Cristhiane Salles', 'Cris',
-    'https://picsum.photos/201/301', 'Mnter-se fiel a si é a condição ideal para o triunfo.Resistir e persistir.',
-    'crissalles@silvagmail.com', '01020304',
-    '1985-01-31'
-);
-INSERT INTO autores (
-    nome, apelido,
-    foto, resumo,
-    email, senha,
-    nascimento
-) VALUES (
-    'Lavinia Moura', 'Vivi',
-    'https://picsum.photos/199/302', 'O ontem não é nosso para recuperar, mas o amanhã é nosso para ganhar ou perder.',
-    'lavinia@gmail.com', '120504',
-    '1998-09-12'
-);
+INSERT INTO autores (nome, apelido, foto, resumo, email, senha, nascimento) VALUES
+('Cristhiane Salles', 'Cris', 'https://randomuser.me/api/portraits/lego/3.jpg', 'Manter-se fiel a si é a condição ideal para o triunfo.Resistir e persistir.', 'crissalles@gmail.com', '12345', '1985-01-31'),
+('Lavínia Roberta', 'Vivi', 'https://randomuser.me/api/portraits/lego/3.jpg', 'O ontem não é nosso para recuperar, mas o amanhã é nosso para ganhar ou perder.', 'lavinia@gmail.com', '12345', '1985-01-31');
+
 
 -- Cria a tabela categorias
 CREATE TABLE categorias (
@@ -176,8 +158,4 @@ INSERT INTO art_cat (artigo_id, categoria_id) VALUES (1, 2); -- Artigo 1 na cate
 
 -- ATIVIDADE) Cadastre cada artigo em categorias
 --
-INSERT INTO art_cat (artigo_id, categoria_id) VALUES (1, 3);
-INSERT INTO art_cat (artigo_id, categoria_id) VALUES (1, 4);
-INSERT INTO art_cat (artigo_id, categoria_id) VALUES (1, 5);
-INSERT INTO art_cat (artigo_id, categoria_id) VALUES (1, 6);
-
+INSERT INTO art_cat (artigo_id, categoria_id) VALUES (2, 5), (2, 2), (3, 3), (3, 1), (4, 3), (4, 5), (3, 5), (2, 4);
