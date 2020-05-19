@@ -88,13 +88,12 @@ require '_header.php';
     <aside class="col2">
         <h3>Categorias</h3>
         <ul>
-            <li><a href="artigos.php?c={id_categoria}">{Raças}</a><sup>{2}</sup></li>
+        <li><a href="artigos.php?c={id_categoria}">{Raças}</a><sup>{2}</sup></li>
             <li><a href="artigos.php?c={id_categoria}">{Pelagem}</a></li>
             <li><a href="artigos.php?c={id_categoria}">{Idade}</a></li>
             <li><a href="artigos.php?c={id_categoria}">{sexo}</a></li>
             <li><a href="artigos.php?c={id_categoria}">{Tamanho}</a></li>
             <li><a href="artigos.php?c={id_categoria}">{Peso}</a></li>
-            
         </ul>
     </aside>
 

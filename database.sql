@@ -42,23 +42,15 @@ CREATE TABLE autores (
 );
 
 -- Inserção de dados na tabela 'autores'
-INSERT INTO autores (
-    nome, apelido,
-    foto, resumo,
-    email, senha,
-    nascimento
-) VALUES (
-    'Joca da Silva', 'Joca',
-    'https://picsum.photos/200/300', 'Escritor de escrituras escritas.',
-    'joca@silva.com', '12345',
-    '1990-10-14'
-);
+INSERT INTO autores (nome, apelido, foto, resumo, email, senha, nascimento) VALUES
+('Joca da Silva', 'Joca', 'https://randomuser.me/api/portraits/lego/3.jpg', 'Escritor de escrituras escritas.', 'joca@silva.com', '12345', '1990-10-14');
+
 
 -- ATIVIDADE) Insira pelo menos mais 2 autores
 --
 INSERT INTO autores (nome, apelido, foto, resumo, email, senha, nascimento) VALUES
 ('Cristhiane Salles', 'Cris', 'https://randomuser.me/api/portraits/lego/3.jpg', 'Manter-se fiel a si é a condição ideal para o triunfo.Resistir e persistir.', 'crissalles@gmail.com', '12345', '1985-01-31'),
-('Lavínia Roberta', 'Vivi', 'https://randomuser.me/api/portraits/lego/3.jpg', 'O ontem não é nosso para recuperar, mas o amanhã é nosso para ganhar ou perder.', 'lavinia@gmail.com', '12345', '1985-01-31');
+('Lavínia Roberta', 'Vivi', 'https://randomuser.me/api/portraits/lego/3.jpg', 'O ontem não é nosso para recuperar, mas o amanhã é nosso para ganhar ou perder.', 'lavinia@gmail.com', '010203', '2008-09-12');
 
 
 -- Cria a tabela categorias
@@ -73,8 +65,7 @@ INSERT INTO categorias (nome) VALUES ('Pelagem');
 
 -- ATIVIDADE) Insira pelo menos mais 4 categorias
 --
-INSERT INTO categorias (nome) VALUES ('Idade'), ('Sexo'), ('Tamanho'), ('Peso');
-
+INSERT INTO categorias (nome) VALUES ('Brancos'), ('Pretos'), ('Listrados'), ('Malhados');
 -- Cria a tabela artigos
 CREATE TABLE artigos (
     id_artigo INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -94,47 +85,17 @@ CREATE TABLE artigos (
 );
 
 -- Inserção de dados na tabela 'artigos'
-INSERT INTO artigos (
-    titulo, imagem,
-    resumo, texto,
-    autor_id
-) VALUES (
-    'Primeiro Artigo do Site', 'https://picsum.photos/200',
-    'Resumo do primeiro artigo do Gatolândia.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, vel explicabo repudiandae libero, suscipit velit, reprehenderit ratione fuga totam tenetur asperiores necessitatibus odio iure consectetur mollitia nesciunt dignissimos aliquam impedit.',
-    '1'
-);
+INSERT INTO artigos (data, titulo, imagem, resumo, texto, autor_id) VALUES
+('2020-05-19 14:55:35', 'Primeiro Artigo do Site', 'https://picsum.photos/200', 'Resumo do primeiro artigo do Gatolândia.', '<h2>Proin vestibulum blandit</h2>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis sapien vel ultrices molestie. Phasellus ut tellus feugiat, tincidunt orci in, lobortis urna. Morbi eu efficitur lectus. Nullam eleifend tellus quis consequat hendrerit. Vivamus nec hendrerit nibh. Nam auctor viverra lacus ut lobortis. In odio eros, semper a tellus eget, facilisis faucibus nulla.</p>\r\n<a href=\"http://luferat.net/\">Site do Fessô</a>\r\n<p lang=\"en\">Nullam scelerisque nisi est, a tincidunt nulla dictum vitae. Integer tincidunt felis lectus, eu sollicitudin mauris euismod vel. Aenean consectetur, arcu quis feugiat convallis, quam quam sollicitudin quam, in aliquet nulla ipsum et est. Donec in maximus magna, rutrum pretium augue. Donec quis pretium dui. Nulla tempor a velit eu finibus. Donec egestas ante vitae odio ultrices, vel egestas odio auctor. Nullam dictum lacus ut augue tempor ornare. Aenean vel nisl sit amet quam lobortis tempor. Ut id bibendum urna, at cursus justo. Quisque nisi risus, egestas in mi in, semper varius ipsum. Sed euismod bibendum pellentesque.</p>\r\n<img class=\"responsivo\" src=\"https://picsum.photos/400/300\" alt=\"Imagem aleatória\">\r\n<p>Donec efficitur posuere commodo. Nulla in metus eu risus suscipit dignissim. Donec purus velit, varius nec placerat quis, gravida id velit. Vestibulum eget sodales metus. Sed rhoncus tellus augue, sit amet ultricies erat convallis vitae.</p>\r\n<p>Sed tincidunt ipsum justo, quis tempus enim tempus sed. Proin nisi nisi, commodo vel sollicitudin quis, efficitur ut purus. In hac habitasse platea dictumst. Curabitur hendrerit justo dolor, ac consequat nisi imperdiet ut. Nam in diam vel dolor viverra ultricies vel vel metus. Etiam semper luctus augue ac pellentesque. Nulla mi nisl, eleifend et aliquam eu, mattis vitae ligula.</p>', 1);
+
 
 -- ATIVIDADE) Inserir pelo menos mais 3 artigos
 --
-INSERT INTO artigos (
-    titulo, imagem,
-    resumo, texto,
-    autor_id
-) VALUES (
-    'Gato Malhado', 'https://picsum.photos/198',
-    'Resumo do segundo artigo do Gatolândia.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, vel explicabo repudiandae libero, suscipit velit, reprehenderit ratione fuga totam tenetur asperiores necessitatibus odio iure consectetur mollitia nesciunt dignissimos aliquam impedit.',
-    '1'
-);
+INSERT INTO artigos (data, titulo, imagem, resumo, texto, autor_id) VALUES
+('2020-05-19 15:17:48', 'Gatos e Seus Donos', 'https://picsum.photos/202', 'orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis sapien vel ultrices molestie.', '<h2>Proin vestibulum blandit</h2>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis sapien vel ultrices molestie. Phasellus ut tellus feugiat, tincidunt orci in, lobortis urna. Morbi eu efficitur lectus. Nullam eleifend tellus quis consequat hendrerit. Vivamus nec hendrerit nibh. Nam auctor viverra lacus ut lobortis. In odio eros, semper a tellus eget, facilisis faucibus nulla.</p>\r\n<a href=\"http://luferat.net/\">Site do Fessô</a>\r\n<p lang=\"en\">Nullam scelerisque nisi est, a tincidunt nulla dictum vitae. Integer tincidunt felis lectus, eu sollicitudin mauris euismod vel. Aenean consectetur, arcu quis feugiat convallis, quam quam sollicitudin quam, in aliquet nulla ipsum et est. Donec in maximus magna, rutrum pretium augue. Donec quis pretium dui. Nulla tempor a velit eu finibus. Donec egestas ante vitae odio ultrices, vel egestas odio auctor. Nullam dictum lacus ut augue tempor ornare. Aenean vel nisl sit amet quam lobortis tempor. Ut id bibendum urna, at cursus justo. Quisque nisi risus, egestas in mi in, semper varius ipsum. Sed euismod bibendum pellentesque.</p>\r\n<img class=\"responsivo\" src=\"https://picsum.photos/400/300\" alt=\"Imagem aleatória\">\r\n<p>Donec efficitur posuere commodo. Nulla in metus eu risus suscipit dignissim. Donec purus velit, varius nec placerat quis, gravida id velit. Vestibulum eget sodales metus. Sed rhoncus tellus augue, sit amet ultricies erat convallis vitae.</p>\r\n<p>Sed tincidunt ipsum justo, quis tempus enim tempus sed. Proin nisi nisi, commodo vel sollicitudin quis, efficitur ut purus. In hac habitasse platea dictumst. Curabitur hendrerit justo dolor, ac consequat nisi imperdiet ut. Nam in diam vel dolor viverra ultricies vel vel metus. Etiam semper luctus augue ac pellentesque. Nulla mi nisl, eleifend et aliquam eu, mattis vitae ligula.</p>', 2),
+('2020-05-19 15:18:18', 'Gatos sem Pelo Sentem Frio?', 'https://picsum.photos/201', 'Donec efficitur posuere commodo. Nulla in metus eu risus suscipit dignissim.', '<h2>Proin vestibulum blandit</h2>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis sapien vel ultrices molestie. Phasellus ut tellus feugiat, tincidunt orci in, lobortis urna. Morbi eu efficitur lectus. Nullam eleifend tellus quis consequat hendrerit. Vivamus nec hendrerit nibh. Nam auctor viverra lacus ut lobortis. In odio eros, semper a tellus eget, facilisis faucibus nulla.</p>\r\n<a href=\"http://luferat.net/\">Site do Fessô</a>\r\n<p lang=\"en\">Nullam scelerisque nisi est, a tincidunt nulla dictum vitae. Integer tincidunt felis lectus, eu sollicitudin mauris euismod vel. Aenean consectetur, arcu quis feugiat convallis, quam quam sollicitudin quam, in aliquet nulla ipsum et est. Donec in maximus magna, rutrum pretium augue. Donec quis pretium dui. Nulla tempor a velit eu finibus. Donec egestas ante vitae odio ultrices, vel egestas odio auctor. Nullam dictum lacus ut augue tempor ornare. Aenean vel nisl sit amet quam lobortis tempor. Ut id bibendum urna, at cursus justo. Quisque nisi risus, egestas in mi in, semper varius ipsum. Sed euismod bibendum pellentesque.</p>\r\n<img class=\"responsivo\" src=\"https://picsum.photos/400/300\" alt=\"Imagem aleatória\">\r\n<p>Donec efficitur posuere commodo. Nulla in metus eu risus suscipit dignissim. Donec purus velit, varius nec placerat quis, gravida id velit. Vestibulum eget sodales metus. Sed rhoncus tellus augue, sit amet ultricies erat convallis vitae.</p>\r\n<p>Sed tincidunt ipsum justo, quis tempus enim tempus sed. Proin nisi nisi, commodo vel sollicitudin quis, efficitur ut purus. In hac habitasse platea dictumst. Curabitur hendrerit justo dolor, ac consequat nisi imperdiet ut. Nam in diam vel dolor viverra ultricies vel vel metus. Etiam semper luctus augue ac pellentesque. Nulla mi nisl, eleifend et aliquam eu, mattis vitae ligula.</p>\r\n', 3),
+('2020-05-19 15:19:16', 'O que Fazer com as Bolas de Pelo', 'https://picsum.photos/199', 'Sed tincidunt ipsum justo, quis tempus enim tempus sed. Proin nisi nisi, commodo vel sollicitudin quis, efficitur ut purus.', '<h2>Proin vestibulum blandit</h2>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis sapien vel ultrices molestie. Phasellus ut tellus feugiat, tincidunt orci in, lobortis urna. Morbi eu efficitur lectus. Nullam eleifend tellus quis consequat hendrerit. Vivamus nec hendrerit nibh. Nam auctor viverra lacus ut lobortis. In odio eros, semper a tellus eget, facilisis faucibus nulla.</p>\r\n<a href=\"http://luferat.net/\">Site do Fessô</a>\r\n<p lang=\"en\">Nullam scelerisque nisi est, a tincidunt nulla dictum vitae. Integer tincidunt felis lectus, eu sollicitudin mauris euismod vel. Aenean consectetur, arcu quis feugiat convallis, quam quam sollicitudin quam, in aliquet nulla ipsum et est. Donec in maximus magna, rutrum pretium augue. Donec quis pretium dui. Nulla tempor a velit eu finibus. Donec egestas ante vitae odio ultrices, vel egestas odio auctor. Nullam dictum lacus ut augue tempor ornare. Aenean vel nisl sit amet quam lobortis tempor. Ut id bibendum urna, at cursus justo. Quisque nisi risus, egestas in mi in, semper varius ipsum. Sed euismod bibendum pellentesque.</p>\r\n<img class=\"responsivo\" src=\"https://picsum.photos/400/300\" alt=\"Imagem aleatória\">\r\n<p>Donec efficitur posuere commodo. Nulla in metus eu risus suscipit dignissim. Donec purus velit, varius nec placerat quis, gravida id velit. Vestibulum eget sodales metus. Sed rhoncus tellus augue, sit amet ultricies erat convallis vitae.</p>\r\n<p>Sed tincidunt ipsum justo, quis tempus enim tempus sed. Proin nisi nisi, commodo vel sollicitudin quis, efficitur ut purus. In hac habitasse platea dictumst. Curabitur hendrerit justo dolor, ac consequat nisi imperdiet ut. Nam in diam vel dolor viverra ultricies vel vel metus. Etiam semper luctus augue ac pellentesque. Nulla mi nisl, eleifend et aliquam eu, mattis vitae ligula.</p>\r\n', 1);
 
-INSERT INTO artigos (
-    titulo, imagem,
-    resumo, texto,
-    autor_id
-) VALUES (
-    'Gato de Botas', 'https://picsum.photos/201',
-    'Resumo do Terceiro artigo do Gatolândia.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, vel explicabo repudiandae libero, suscipit velit, reprehenderit ratione fuga totam tenetur asperiores necessitatibus odio iure consectetur mollitia nesciunt dignissimos aliquam impedit.',
-    '2'
-);
-
-INSERT INTO artigos (
-    titulo, imagem,
-    resumo, texto,
-    autor_id
-) VALUES (
-    'Gato Preto', 'https://picsum.photos/200',
-    'Resumo do quarto artigo do Gatolândia.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, vel explicabo repudiandae libero, suscipit velit, reprehenderit ratione fuga totam tenetur asperiores necessitatibus odio iure consectetur mollitia nesciunt dignissimos aliquam impedit.',
-    '3'
-);
 
 -- Cria a tabela de ligação 'artigos' <-> 'categorias'
 CREATE TABLE art_cat (
