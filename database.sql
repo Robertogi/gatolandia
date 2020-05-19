@@ -50,7 +50,7 @@ INSERT INTO autores (nome, apelido, foto, resumo, email, senha, nascimento) VALU
 --
 INSERT INTO autores (nome, apelido, foto, resumo, email, senha, nascimento) VALUES
 ('Cristhiane Salles', 'Cris', 'https://randomuser.me/api/portraits/lego/3.jpg', 'Manter-se fiel a si é a condição ideal para o triunfo.Resistir e persistir.', 'crissalles@gmail.com', '12345', '1985-01-31'),
-('Lavínia Roberta', 'Vivi', 'https://randomuser.me/api/portraits/lego/3.jpg', 'O ontem não é nosso para recuperar, mas o amanhã é nosso para ganhar ou perder.', 'lavinia@gmail.com', '010203', '2008-09-12');
+('Lavínia Roberta', 'Lavinia Vivi', 'https://randomuser.me/api/portraits/lego/3.jpg', 'O ontem não é nosso para recuperar, mas o amanhã é nosso para ganhar ou perder.', 'lavinia@gmail.com', '010203', '2008-09-12');
 
 
 -- Cria a tabela categorias
