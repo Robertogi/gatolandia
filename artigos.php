@@ -55,16 +55,12 @@ while ($art = $res->fetch_assoc()) {
 
     // Cria a lista de artigos usando HEREDOC
     $artigos .= <<<HTML
-
 <div class="artigo">
-
     <a href="artigo.php?id={$art['id_artigo']}"><img src="{$art['imagem']}" alt="{$art['titulo']}"></a>
     <a href="artigo.php?id={$art['id_artigo']}"><h4>{$art['titulo']}</h4></a>
     <span>{$art['resumo']}</span>
     <small><a href="artigo.php?id={$art['id_artigo']}">Ler mais...</a></small>
-
 </div>
-
 HTML;
 
 }
@@ -99,7 +95,6 @@ while ($cat = $res->fetch_assoc()) {
         // Cria a lista de categorias usando HEREDOC
         $categorias .= <<<HTML
         <li><a href="artigos.php?c={$cat['id_categoria']}">{$cat['nome']}</a> <small><sup>{$total}</sup></small></li>
-
 HTML;
     }
 }

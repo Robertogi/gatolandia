@@ -93,13 +93,12 @@ $titulo = $art['titulo'];
 
 // Formata artigo
 $artigo = <<<HTML
-
 <h2>{$art['titulo']}</h2>
 <small class="subtitulo">Por <a href="#" id="mostraAutor">{$autor['apelido']}</a> em {$art['databr']}.</small>
 <div>{$art['texto']}</div>
-
 <div class="categorias">{$categorias}</div>
-
+<hr>
+<p class="center"><a href="/artigos.php">Todos os artigos</a></p>
 <div id="modal">
     <div class="modal-box">
         <div class="modal-body">
@@ -113,7 +112,6 @@ $artigo = <<<HTML
         </div>
     </div>
 </div>
-
 HTML;
 
 //////////////////////////////////////////////////////
