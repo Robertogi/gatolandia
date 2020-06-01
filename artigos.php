@@ -13,7 +13,7 @@ require '_config.php';
 $titulo --> Define o título "desta" página.
 Se = "", usa o título e o slogan do site.
  */
-$titulo = "Artigos";
+$titulo = "Artigos Recentes";
 
 /*
 $css --> Carrega o CSS adicional "desta" página.
@@ -41,8 +41,29 @@ $menu = "artigos";
 // Seus códigos PHP para esta página começam aqui! //
 /////////////////////////////////////////////////////
 
-// Query de consulta ao banco de dados
-$sql = "SELECT id_artigo, titulo, imagem, resumo FROM artigos WHERE status = 'ativo' ORDER BY data DESC";
+//Capturar o ID da URL
+$idcat = (isset($_GET['c'])) ? intval($_GET['c']) : 0;
+
+// Debug: print_r($idcat); exit();
+
+// Se pediu uma categoria, obtém artigos desta categoria
+
+if ($idcat > 0) {
+
+    $sql = <<< SQL
+SELECT id_artigo, titulo, imagem, resumo, id_categoria, nome FROM artigos
+    INNER JOIN art_cat ON artigo_id = id_artigo
+    INNER JOIN categorias ON categoria_id = id_categoria
+WHERE categoria_id = '{$idcat}' AND status = 'ativo'
+    ORDER BY data DESC
+SQL;
+
+    // Se pediu todos os artigos
+} else {
+
+    // query de consulta ao banco de dados
+    $sql = "SELECT id_artigo, titulo, imagem, resumo FROM artigos WHERE status = 'ativo' ORDER BY data DESC";
+}
 
 // Executa a query
 $res = $conn->query($sql);
@@ -50,20 +71,41 @@ $res = $conn->query($sql);
 // Declara variável que exibe os artigos
 $artigos = '';
 
-// Loop para obter cada registro do banco de dados
-while ($art = $res->fetch_assoc()) {
+// Se existem artigos a serem exibidos
+if ($res->num_rows > 0) {
 
-    // Cria a lista de artigos usando HEREDOC
-    $artigos .= <<<HTML
+    // Loop para obter cada registro do banco de dados
+    while ($art = $res->fetch_assoc()) {
+
+        // Cria a lista de artigos usando HEREDOC
+        $artigos .= <<<HTML
+
 <div class="artigo">
+
     <a href="artigo.php?id={$art['id_artigo']}"><img src="{$art['imagem']}" alt="{$art['titulo']}"></a>
     <a href="artigo.php?id={$art['id_artigo']}"><h4>{$art['titulo']}</h4></a>
     <span>{$art['resumo']}</span>
     <small><a href="artigo.php?id={$art['id_artigo']}">Ler mais...</a></small>
+
 </div>
+
 HTML;
 
-}
+        // Acrescenta nome da categoria no título
+        if($idcat > 0){
+            $titulo = "Artigos Recentes em \"{$art['nome']}\"";
+        }
+    } // end while
+
+    // Se não existem artigos
+} else {
+
+    $artigos = '<p class = "center"> Nenhum artigo encontrado!</p>';
+} 
+
+ //Título da página = título HTML
+ $cattitulo = $titulo;
+
 
 ///// Obtendo lista de Categorias /////
 
@@ -91,7 +133,7 @@ while ($cat = $res->fetch_assoc()) {
     $total = $res2->num_rows;
 
     // Só exibe categoria se tiver artigo nela
-    if($total > 0) {
+    if ($total > 0) {
         // Cria a lista de categorias usando HEREDOC
         $categorias .= <<<HTML
         <li><a href="artigos.php?c={$cat['id_categoria']}">{$cat['nome']}</a> <small><sup>{$total}</sup></small></li>
@@ -112,7 +154,7 @@ require '_header.php';
 
 ?>
 
-<h2>Artigos Recentes</h2>
+<h2><?php echo $cattitulo ?></h2>
 <small class="subtitulo">Mais recentes primeiro.</small>
 
 <div class="row">
