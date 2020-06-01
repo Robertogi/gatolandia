@@ -41,28 +41,28 @@ $menu = "artigos";
 // Seus códigos PHP para esta página começam aqui! //
 /////////////////////////////////////////////////////
 
-//Capturar o ID da URL
+// Capturar o ID da URL
 $idcat = (isset($_GET['c'])) ? intval($_GET['c']) : 0;
 
-// Debug: print_r($idcat); exit();
+// DEBUG: print_r($idcat); exit();
 
 // Se pediu uma categoria, obtém artigos desta categoria
-
 if ($idcat > 0) {
 
-    $sql = <<< SQL
+    $sql = <<<SQL
 SELECT id_artigo, titulo, imagem, resumo, id_categoria, nome FROM artigos
     INNER JOIN art_cat ON artigo_id = id_artigo
     INNER JOIN categorias ON categoria_id = id_categoria
-WHERE categoria_id = '{$idcat}' AND status = 'ativo'
+WHERE categoria_id = '{$idcat}' AND status = 'ativo' 
     ORDER BY data DESC
 SQL;
 
     // Se pediu todos os artigos
 } else {
 
-    // query de consulta ao banco de dados
+    // Query de consulta ao banco de dados
     $sql = "SELECT id_artigo, titulo, imagem, resumo FROM artigos WHERE status = 'ativo' ORDER BY data DESC";
+
 }
 
 // Executa a query
@@ -91,8 +91,8 @@ if ($res->num_rows > 0) {
 
 HTML;
 
-        // Acrescenta nome da categoria no título
-        if($idcat > 0){
+        // Acrescenta nome da categoria no titulo
+        if ($idcat > 0) {
             $titulo = "Artigos Recentes em \"{$art['nome']}\"";
         }
     } // end while
@@ -100,12 +100,11 @@ HTML;
     // Se não existem artigos
 } else {
 
-    $artigos = '<p class = "center"> Nenhum artigo encontrado!</p>';
-} 
+    $artigos = '<p class="center">Nenhum artigo encontrado!</p>';
+}
 
- //Título da página = título HTML
- $cattitulo = $titulo;
-
+// Título da página = título do HTML
+$cattitulo = $titulo;
 
 ///// Obtendo lista de Categorias /////
 
@@ -133,10 +132,11 @@ while ($cat = $res->fetch_assoc()) {
     $total = $res2->num_rows;
 
     // Só exibe categoria se tiver artigo nela
-    if ($total > 0) {
+    if($total > 0) {
         // Cria a lista de categorias usando HEREDOC
         $categorias .= <<<HTML
         <li><a href="artigos.php?c={$cat['id_categoria']}">{$cat['nome']}</a> <small><sup>{$total}</sup></small></li>
+
 HTML;
     }
 }
@@ -154,12 +154,13 @@ require '_header.php';
 
 ?>
 
-<h2><?php echo $cattitulo ?></h2>
-<small class="subtitulo">Mais recentes primeiro.</small>
-
 <div class="row">
 
-    <div class="col1"><?php echo $artigos ?></div>
+    <div class="col1">
+        <h2><?php echo $cattitulo ?></h2>
+        <small class="subtitulo">Mais recentes primeiro.</small>
+        <?php echo $artigos ?>
+    </div>
     <aside class="col2">
         <h3>Categorias</h3>
         <?php echo $categorias ?>
