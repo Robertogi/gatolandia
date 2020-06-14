@@ -90,7 +90,7 @@ span.close-modal {
     margin: -0.5rem -0.5rem 0 0;
 }
 
-.modal-body hr {
+hr {
     border: none;
     border-bottom: 1px dotted #888;
 }
