@@ -1,1 +1,1 @@
-$(document).ready(showNews('#news', 15, 'windows'));
+$(document).ready(showNews('#news', 15, 'gato')); 

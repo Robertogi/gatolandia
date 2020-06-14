@@ -27,7 +27,7 @@ $css = "/css/noticias.css";
     Se "", não usa JavaScript adicional.
     Exemplo: /js/template.js
 */
-$js = "";
+$js = "/js/noticias.js";
 
 /*
     $menu --> Define o item ativo do menu "nesta" página.
@@ -35,13 +35,31 @@ $js = "";
     Valores possíveis: "", "artigos", "contatos", "sobre", "procurar", "noticias".
     Qualquer outro valor = "".
 */
-$menu = "";
+$menu = "noticias";
 
 /////////////////////////////////////////////////////
 // Seus códigos PHP para esta página começam aqui! //
 /////////////////////////////////////////////////////
 
+// Obtendo artigos aleatórios
+$sql = "SELECT id_artigo, imagem, titulo FROM `artigos` WHERE status = 'ativo' ORDER BY RAND() LIMIT 3;";
+$res = $conn->query($sql);
 
+// Loop de exibição
+$artigos = '';
+while ($art = $res->fetch_assoc()) :
+
+    $artigos .= <<<HTML
+<div class="art">
+<a href="/artigo.php?id={$art['id_artigo']}">
+    <img src="{$art['imagem']}" alt="{$art['titulo']}" title="{$art['titulo']}">    
+    {$art['titulo']}
+</a>
+</div>
+HTML;
+
+endwhile;
+$artigos .= '';
 
 //////////////////////////////////////////////////////
 // Seus códigos PHP para esta página terminam aqui! //
@@ -53,9 +71,18 @@ require ('_header.php');
 
 ?> 
 
-<h2>Notícias da Gatolândia</h2>
-<p>Últimas notícias do Brasil e do mundo sobre felinos e pets emgeral</p>
-<div id='news'></div>
+<div class="row">
+    <div class="col1">
+        <h2>Notícias da Gatolândia</h2>
+        <p>Últimas notícias do Brasil e do mundo sobre felinos e pets em geral.</p>
+        <div id="news"></div>
+    </div>
+    <aside class="col2">
+        <h3>Artigos</h3>
+        <?php echo $artigos ?>
+    </aside>
+</div>
+
 <?php
 
 // Template de fechamento - rodapé
