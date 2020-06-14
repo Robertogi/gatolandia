@@ -8,7 +8,11 @@ $database = 'gatolandia'; // nome do banco de dados
 $usuario = 'root'; // nome do usuário do banco de dados
 $senha = ''; // senha do usuário do banco de dados
 
-
+// Dados de conexão com awardspace.com
+$servidor = 'fdb24.awardspace.net';
+$database = '3473455_gatolandia';
+$usuario = '3473455_gatolandia';
+$senha = '';
 
 // Conexão com o MySQL --> OO   ┌───> Parâmetros construtores do objeto
 $conn = new mysqli($servidor, $usuario, $senha, $database);
